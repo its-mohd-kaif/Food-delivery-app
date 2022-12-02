@@ -1,20 +1,35 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { products } from "../Data";
 import Button from "@mui/material/Button";
 import "./Card.css";
-// import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-// import SkipNextIcon from '@mui/icons-material/SkipNext';
+import { noteContext } from "../App";
 
 export default function MediaControlCard() {
-  const theme = useTheme();
+  // UseContext For Data Transfer
+  const item = React.useContext(noteContext);
+  // Add To Cart Function
+  const addToCart = (e) => {
+    alert("Product Added Successfully!!");
+    let productId = Number(e.target.value);
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].id === productId) {
+        for (let j = 0; j < item.data.length; j++) {
+          if (item.data[j].id === productId) {
+            item.data[j].quantity++;
+            item.setData([...item.data]);
+            return;
+          }
+        }
+        item.data.push(products[i]);
+        item.setData([...item.data]);
+      }
+    }
+  };
 
   return (
     <>
@@ -45,22 +60,18 @@ export default function MediaControlCard() {
                     color="text.secondary"
                     component="div"
                   >
-                    <Button variant="outlined">ADD TO CART</Button>
+                    <Button
+                      value={val.id}
+                      onClick={addToCart}
+                      variant="outlined"
+                    >
+                      ADD TO CART
+                    </Button>
                   </Typography>
                 </CardContent>
                 <Box
                   sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
-                >
-                  <IconButton aria-label="previous">
-                    {/* {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />} */}
-                  </IconButton>
-                  <IconButton aria-label="play/pause">
-                    {/* <PlayArrowIcon sx={{ height: 38, width: 38 }} /> */}
-                  </IconButton>
-                  <IconButton aria-label="next">
-                    {/* {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />} */}
-                  </IconButton>
-                </Box>
+                ></Box>
               </Box>
               <CardMedia
                 component="img"

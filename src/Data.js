@@ -16,6 +16,7 @@ export const products = [
     typeImg: veg,
     price: 20,
     image: img1,
+    quantity: 1,
   },
   {
     id: 102,
@@ -24,6 +25,7 @@ export const products = [
     typeImg: veg,
     price: 30,
     image: img2,
+    quantity: 1,
   },
   {
     id: 103,
@@ -32,6 +34,7 @@ export const products = [
     typeImg: veg,
     price: 30,
     image: img3,
+    quantity: 1,
   },
   {
     id: 104,
@@ -40,6 +43,7 @@ export const products = [
     typeImg: veg,
     price: 25,
     image: img4,
+    quantity: 1,
   },
   {
     id: 105,
@@ -48,6 +52,7 @@ export const products = [
     typeImg: veg,
     price: 35,
     image: img5,
+    quantity: 1,
   },
   {
     id: 106,
@@ -56,6 +61,7 @@ export const products = [
     typeImg: nonveg,
     price: 40,
     image: img6,
+    quantity: 1,
   },
   {
     id: 107,
@@ -64,5 +70,6 @@ export const products = [
     typeImg: nonveg,
     price: 20,
     image: img7,
+    quantity: 1,
   },
 ];
