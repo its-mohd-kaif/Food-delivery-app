@@ -1,0 +1,10 @@
+.containerCart{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2%;
+    margin-left: 8%;
+}
+.cart{
+    margin: 2%;
+}
