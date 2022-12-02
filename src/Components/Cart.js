@@ -127,8 +127,6 @@ export default function SwipeableTemporaryDrawer() {
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
-      onClick={homeDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
     >
       <div>
         <div>
@@ -137,7 +135,7 @@ export default function SwipeableTemporaryDrawer() {
               <Button
                 variant="contained"
                 color="success"
-                onClick={homeDrawer(anchor, true)}
+                onClick={homeDrawer(anchor, false)}
               >
                 Home
               </Button>
